@@ -1,0 +1,12 @@
+---
+- name: Play to list all the hosts in the inventory
+  hosts: localhost
+  become: true
+  remote_user: ansible
+  tasks:
+   - name: Task to print hosts in the inevntory by looping aganinst group 'all'
+          #items in group ['all']
+     debug:
+      msg: "{{item}}"
+     loop: "{{groups['all']}}" #rememner the magic variable. Refer 'play41.yml' to verify this.
+...
